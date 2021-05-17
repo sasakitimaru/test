@@ -1,0 +1,4 @@
+本文のp.252からを参考に、以下のサイトからChrome用のWeb Driverをダウンロードして、
+解凍したファイルをこのフォルダーにコピーしてください。
+
+https://sites.google.com/a/chromium.org/chromedriver/downloads
