@@ -1,0 +1,17 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import xml.etree.ElementTree as ET
+import openpyxl
+import time
+
+driver_path = "driver/chromedriver"
+driver = webdriver.Chrome(executable_path=driver_path)
+driver.implicitly_wait(10)
+
+driver.get("https://www.google.co.jp/")
+driver.find_element(By.NAME, "q").send_keys("埼玉県　入間市　都市公園")
+driver.find_element(By.NAME, "q").send_keys(Keys.ENTER)
+driver.find_element(By.LINK_TEXT, "地図").click()
+driver.execute_script("window.scrollTo(0,100)")
+driver.close()

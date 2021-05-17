@@ -1,0 +1,5 @@
+import sys
+import Tkinter
+
+root = Tkinter.Tk()
+root.mainloop()

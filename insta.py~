@@ -1,0 +1,12 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver_path = "driver/chromedriver"
+driver = webdriver.Chrome(executable_path=driver_path)
+driver.implicitly_wait(10)
+driver.get("https://www.instagram.com/accounts/login/")
+txt1 =
+driver.find_element(By.CSS_SELECTOR, "div._9GP1n").click()
+driver.find_element(By.CSS_SELECTOR, "div._9GP1n").send_keys(txt + Keys.TAB)

@@ -1,0 +1,34 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver_path = "driver/chromedriver"
+driver = webdriver.Chrome(executable_path=driver_path)
+driver.implicitly_wait(10)
+address_list = []
+driver.get("https://www.google.com/maps/search/%E5%85%A5%E9%96%93%E5%B8%82%E3%80%80%E5%85%AC%E5%9C%92/@35.831455,139.3681826,14z/data=!3m1!4b1")
+
+
+#driver.find_element(By.NAME, "q").click()
+#kensaku = park + "　住所"
+#driver.find_element(By.NAME, "q").send_keys(kensaku + Keys.ENTER)
+#s = a.find_element(By.CSS_SELECTOR, "span.GRkHZd w8qArf")
+
+#a = driver.find_element(By.CSS_SELECTOR, "div.sXLaOe")
+#address_list.append(a.text)
+#sex=driver.find_element(By.CSS_SELECTOR,"div.mapsConsumerUiSubviewSectionGm2Placesummary__info-line:nth-child(2)")
+#address_list.append(sex.get_attribute("textContent"))
+#se=sex.find_element(By.CSS_SELECTOR,)
+#print(sex.get_attribute("textContent"))
+t=3
+#a=driver.find_element(By.CSS_SELECTOR, "div:nth-child(1) > .mapsConsumerUiSubviewSectionGm2Placeresultcontainer__result-container")
+#driver.execute_script("window.scrollTo(0,0)")
+time.sleep(5)
+driver.find_element(By.NAME, "body").click()
+driver.execute_script("window.scrollTo(0,100)")
+c=driver.find_elements_by_class_name('mapsConsumerUiSubviewSectionGm2Placesummary__title-container')
+for i in c:
+    print(i.text)
+print(c[7].text)
+driver.close()

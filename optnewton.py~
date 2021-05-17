@@ -1,0 +1,4 @@
+from scipy import optimize
+def f(x):
+    return x*x-3*x+2
+optimize.newton(f,-1)

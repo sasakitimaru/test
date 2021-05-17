@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<stdlib.h>
+int fact(int n)
+{
+  int x ;
+  printf("n=%d\n",n);
+  if (n == 0) return 1;
+  else x=fact(n-1);
+  printf("fact(%d)=%d\n", n-1, x);
+  return fact(n-1)*n ;
+}
+int main(void){
+  int m;
+  scanf("%d",&m);
+  fact(m);
+  return 0;
+}

@@ -1,0 +1,11 @@
+import pandas as pd
+import camelot.io as camelot
+#pdfファイルを読み込む
+table = camelot.read_pdf("ninkoichiran030401.pdf")
+lists = [] #一時保存用リスト
+for t in table:
+    lists.append(t.df)
+df = pd.concat(lists) #データフレームを結合
+# excelファイルへ出力
+with pd.ExcelWriter("nintei.xlsx") as writer:
+df.to_excel(writer, sheet_name='sheet1', index=False, header=False)

@@ -1,0 +1,46 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+import openpyxl
+
+ppp = "入間市"
+wb1 = openpyxl.load_workbook(ppp+"＿公園test.xlsx")
+ws1 = wb1.worksheets[0]
+
+wb2 = openpyxl.load_workbook(ppp+"＿公園test2.xlsx")
+ws2 = wb2.worksheets[0]
+
+#公園の名前を保存
+val_list=[]
+
+max_gyou = 0
+for row in ws1.iter_rows():
+    if row[0].value is None:
+        break
+    val_list.append(row[1].value)
+    max_gyou = max_gyou + 1
+#for i in val_list:
+    #print(i)
+#1行足して分ける
+max_gyou = max_gyou + 3
+for roo in ws2.iter_rows():
+    if roo[0].value is None:
+        break
+    if roo[0].value in val_list:
+        ws1.cell(val_list.index(roo[0].value)+1,4).value = roo[1].value
+    else:
+        ws1.cell(max_gyou,2).value = roo[0].value
+        ws1.cell(max_gyou,3).value = roo[1].value
+        max_gyou = max_gyou + 1
+for col in ws1.columns:
+    max_length = 0
+    column = col[0].column
+
+    for cell in col:
+        if len(str(cell.value)) > max_length:
+            max_length = len(str(cell.value))
+
+    adjusted_width = (max_length + 2) * 1.3
+    ws1.column_dimensions[col[0].column_letter].width = adjusted_width
+wb1.save(ppp+"＿公園sample.xlsx")
